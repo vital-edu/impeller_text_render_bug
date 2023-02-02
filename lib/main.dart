@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,7 +32,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   static const _loremIpsum =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-  final random = Random();
 
   @override
   Widget build(BuildContext context) {
@@ -50,24 +47,18 @@ class _MyHomePageState extends State<MyHomePage> {
               _loremIpsum,
               style: TextStyle(
                 fontWeight: FontWeight.values[index % 9],
-                fontSize: (8 + random.nextInt(12)).toDouble(),
+                fontSize: 12,
               ),
             ),
             subtitle: Text(
               _loremIpsum,
               style: TextStyle(
-                fontWeight: FontWeight.values[random.nextInt(9)],
-                fontSize: (8 + random.nextInt(12)).toDouble(),
+                fontWeight: FontWeight.values[(index + 3) % 9],
               ),
             ),
           );
         },
         itemCount: 1000,
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Refresh',
-        child: const Icon(Icons.refresh),
-        onPressed: () => setState(() {}),
       ),
     );
   }
